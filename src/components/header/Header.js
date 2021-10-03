@@ -20,7 +20,7 @@ const Header = () => {
                         </div>
                     </div>
 
-                    <p className='header__day'>{days[date.getDay() - 1]}</p>
+                    <p className='header__day'>{date.getDay() === 0 ? days[6] : days[date.getDay() - 1] }</p>
                 </div>
             </div>
         </header>

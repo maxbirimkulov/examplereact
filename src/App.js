@@ -31,7 +31,10 @@ function App() {
 
 
     useEffect(()=>{
-        setTodoArr(JSON.parse(localStorage.getItem('array')));
+        setTodoArr(Array.isArray(JSON.parse(localStorage.getItem('array')))
+            ? JSON.parse(localStorage.getItem('array'))
+            : []
+        );
     },[]);
 
     useEffect(()=>{
@@ -47,7 +50,6 @@ function App() {
                 <AddTodo setStatus={setStatus} status={status} todoName={todoName} setTodoName={setTodoName} setTodoArr={setTodoArr} todoArr={todoArr}/>
                 <TodoList  setTodoName={setTodoName} todoArr={todoArr} setTodoArr={setTodoArr} status={status} setStatus={setStatus}/>
             </div>
-
             </>
 
     );
